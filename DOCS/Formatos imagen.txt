@@ -1,0 +1,15 @@
+JPEG: Joint Photographer Experts Group -> Fotos
+    Compresión DESTRUCTIVA -> Factor de destrucción
+    24 bits (16 millones de colores)
+GIF: Graphics Interchange Format -> MEMES
+    256 colores
+    Animación
+    Color transparente
+PNG: Portable Network Graphics -> Logos
+    24 bits (16 millones de colores)
+    Compresión NO destructiva
+    Color transparente
+SVG: Structured Vector Graphics -> Logos
+    Dibujo vectorial
+    Zoom infinito
+    Definición exacta
