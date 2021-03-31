@@ -2,15 +2,34 @@
 https://flukeout.github.io/
 */
 
+:root {
+    --margen-multimedia: 1em;
+    --borde-menu: 2px;
+    --padding-menu: 0.5em;
+    --color-tinta-menu: white;
+    --color-fondo-menu: black;
+    --color-fondo-1: white;
+    --color-fondo-2: gray;
+    --color-fondo-3: darkgray;
+    --color-fondo-4: lightgray;
+    --color-fondo-5: rgb(243, 243, 243);
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: sans-serif;
     margin: 0;
 }
 
+
 /* TODO: Mejorar los márgenes de textos con body 0 de margen */
 
 p {
     margin-left: 1em;
+    margin-right: 1em;
 }
 
 a {
@@ -23,65 +42,212 @@ a:hover {
     text-decoration: underline;
 }
 
-body > nav {
-    background: black;
-    border: 2px solid black;
+body>nav {
+    background: var(--color-fondo-menu);
+    border: var(--borde-menu) solid var(--color-fondo-menu);
 }
 
-body > nav a {
-    padding: 0.5em;
-    color: white;
+body>nav a {
+    padding: var(--padding-menu);
+    color: var(--color-tinta-menu);
     display: inline-block;
 }
 
-body > nav a:hover {
-    color: black;
-    background: white;
+body>nav a:hover {
+    color: var(--color-fondo-menu);
+    background: var(--color-tinta-menu);
     text-decoration: none;
 }
 
-body > nav ul {
+body>nav ul {
     padding-left: 0;
     margin-top: 2px;
     margin-bottom: 2px;
 }
 
-body > nav li {
+body>nav li {
     list-style: none;
     display: inline-block;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
     padding: 0.75em;
 }
 
 h1 {
     text-transform: uppercase;
-
     font-size: 350%;
-
     text-align: center;
-
     padding-left: 0;
     padding-right: 0;
+    background: var(--color-fondo-1);
 }
 
 h2 {
     text-align: center;
-    background: gray;
-
+    background: var(--color-fondo-2);
     font-variant: small-caps;
-
     font-size: 300%;
 }
 
 h3 {
-    background: lightgray;
-
+    background: var(--color-fondo-3);
     font-size: 180%;
 }
 
 h4 {
-    background: rgb(241, 241, 241);
+    background: var(--color-fondo-4);
 }
+
+img,
+video,
+audio,
+iframe {
+    border: 5px solid darkgray;
+    width: 100%;
+    margin: var(--margen-multimedia) 0;
+}
+
+audio {
+    border: 0;
+}
+
+
+/* https://www.desarrollolibre.net/index.php?/blog/html/videos-responsive-para-youtube-2-soluciones-con-css-y-javascript#.YGQoYrBxfIU */
+
+.contenedor16x9,
+.contenedor4x3 {
+    position: relative;
+    padding-top: 25px;
+    height: 0;
+    margin: var(--margen-multimedia) 0;
+}
+
+.contenedor16x9 {
+    padding-bottom: 56.25%;
+    /* proporción 16:9 */
+}
+
+.contenedor4x3 {
+    padding-bottom: 75%;
+}
+
+.contenedor4x3 iframe,
+.contenedor16x9 iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table caption,
+table thead tr,
+table tfoot tr {
+    background: var(--color-fondo-menu);
+    color: var(--color-tinta-menu);
+    border: var(--borde-menu) solid var(--color-fondo-menu);
+    font-weight: bold;
+}
+
+table td,
+table th {
+    padding: var(--padding-menu);
+}
+
+table tbody td,
+table tbody th {
+    border: 1px solid var(--color-fondo-3);
+}
+
+table tbody tr:nth-child(even) {
+    background: var(--color-fondo-4);
+}
+
+table thead th:first-child,
+table tbody th:first-child,
+table thead th:last-child,
+table tbody td:last-child,
+table tfoot td:last-child {
+    text-align: right;
+}
+
+table thead th:nth-child(2) {
+    text-align: left;
+}
+
+input,
+button,
+select,
+textarea {
+    width: 100%;
+}
+
+#login label {
+    width: 28%;
+    display: inline-block;
+}
+
+aside {
+    margin: 0;
+    padding: 1em;
+    background: var(--color-fondo-4);
+}
+
+aside ul {
+    margin: 0;
+    padding: 0;
+}
+
+aside li {
+    list-style: none;
+}
+
+aside a {
+    color: black;
+}
+
+#login input,
+#login button {
+    width: 70%;
+    display: inline-block;
+}
+
+body>footer {
+    background: var(--color-fondo-menu);
+    color: var(--color-tinta-menu);
+    padding: var(--padding-menu);
+    border: var(--borde-menu) solid var(--color-fondo-menu);
+}
+
+@media (min-width: 576px) {
+    #campos * {
+        width: 49%;
+    }
+}
+
+@media (min-width: 1000px) {
+    section {
+        display: inline-block;
+        width: 49%;
+    }
+}
+
+
+/*
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+https://css-tricks.com/snippets/css/complete-guide-grid/
+http://flexboxfroggy.com/#es
+https://cssgridgarden.com/#es
+*/

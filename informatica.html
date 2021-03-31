@@ -39,7 +39,7 @@
                 <h4>Asuspirar</h4>
                 <p>Descripción del portátil</p>
 
-                <img src="imgs/portatil1.jfif" style="width: 100%" alt="Ordenador Apple">
+                <img src="imgs/portatil1.jfif" alt="Ordenador Apple">
 
                 <a href="comprar?id=2">Comprar</a>
             </article>
@@ -48,7 +48,7 @@
                 <h4>Manzana</h4>
                 <p>Otra descripción de cómo se comen manzanas</p>
 
-                <img src="imgs/portatil2.jfif" style="width: 100%" alt="Portátil gris">
+                <img src="imgs/portatil2.jfif" alt="Portátil gris">
 
                 <a href="comprar?id=3">Comprar</a>
             </article>
@@ -68,16 +68,18 @@
                 Descripción del video
             </video>
 
-            <iframe style="width: 560px; height: 315px; border: 0"
-                src="https://www.youtube-nocookie.com/embed/SVGjOUnQZ58" title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+            <div class="contenedor4x3">
+                <iframe src="https://www.youtube-nocookie.com/embed/SVGjOUnQZ58" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
 
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762268197824!2d-2.9157806851028543!3d43.2564039791369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1617005602878!5m2!1ses!2ses"
-                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="contenedor16x9">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762268197824!2d-2.9157806851028543!3d43.2564039791369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1617005602878!5m2!1ses!2ses"
+                    allowfullscreen="" loading="lazy"></iframe>
+            </div>
 
-            <iframe height="300" width="500" src="http://www.ipartek.com"></iframe>
+            <div class="contenedor4x3">
+                <iframe src="http://www.ipartek.com"></iframe>
+            </div>
 
             <audio controls src="https://www.w3schools.com/html/horse.mp3"></audio>
 
@@ -121,8 +123,7 @@
                 </tfoot>
             </table>
 
-            <iframe
-                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT_oHYS8OcZBXUtGq5sDZYsOEpZMkPrpG1vgDjKZqtcUDnwArXNo448Jkh2Opjz52nBjmaKjln7MR-t/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT_oHYS8OcZBXUtGq5sDZYsOEpZMkPrpG1vgDjKZqtcUDnwArXNo448Jkh2Opjz52nBjmaKjln7MR-t/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
         </section>
         <section id="formularios">
             <header>
@@ -137,7 +138,7 @@
             </form>
 
             <form>
-                <fieldset>
+                <fieldset id="login">
                     <legend>Datos de login</legend>
 
                     <div>
@@ -149,10 +150,11 @@
                         <input type="password" id="password">
                     </div>
                     <div>
+                        <label></label>
                         <button>Aceptar</button>
                     </div>
                 </fieldset>
-                <fieldset>
+                <fieldset id="campos">
                     <legend>Tipo de campos</legend>
 
                     <input type="hidden" name="id" value="5">
