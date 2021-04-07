@@ -190,7 +190,8 @@
                     <article>
                         <h4>Pera</h4>
                         <p>Otra descripción de cómo se comen peras</p>
-                        <figure class="figure">
+                        <figure class="figure w-100">
+                            <!-- w-100 para que funcione también en Explorer 11 -->
                             <img src="imgs/portatil1.jfif" class="figure-img img-fluid rounded" alt="...">
                             <figcaption class="figure-caption text-right">Un portátil superchulo</figcaption>
                         </figure>
@@ -289,96 +290,126 @@
                             </fieldset>
                         </form>
 
-                        <form class="col-xl-8">
-                            <div class="row">
-                                <fieldset class="col-xl-6" id="login">
-                                    <legend>Datos de login</legend>
+                        <form novalidate class="col-xl-4 needs-validation">
 
-                                    <div class="form-group row">
-                                        <label for="email" class="col-sm-2 col-md-12 col-form-label">Email</label>
-                                        <div class="col-sm-10 col-md-12">
-                                            <input type="email" class="form-control" id="email" required placeholder="El email que sueles utilizar">
+                            <fieldset id="login">
+                                <legend>Datos de login</legend>
+
+                                <div class="form-group row">
+                                    <label for="email" class="col-sm-2 col-md-12 col-form-label">Email</label>
+                                    <div class="col-sm-10 col-md-12">
+                                        <input type="email" class="form-control" id="email" required placeholder="El email que sueles utilizar">
+                                        <div class="invalid-feedback">
+                                            Debes introducir un email
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="password" class="col-sm-2 col-md-12 col-form-label">Contraseña</label>
-                                        <div class="col-sm-10 col-md-12">
-                                            <input type="password" class="form-control" id="password">
+                                </div>
+                                <div class="form-group row">
+                                    <label for="password" class="col-sm-2 col-md-12 col-form-label">Contraseña</label>
+                                    <div class="col-sm-10 col-md-12">
+                                        <input type="password" class="form-control" id="password" required minlength="8" pattern="^((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{8,64})$">
+                                        <!-- https://regexr.com/ -->
+                                        <div class="invalid-feedback">
+                                            La contraseña es obligatoria y debe tener 8 caracteres como mínimo
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="offset-sm-2 offset-md-0 col-sm-10 col-md-12">
-                                            <button type="submit" class="btn btn-primary">Aceptar</button>
-                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="offset-sm-2 offset-md-0 col-sm-10 col-md-12">
+                                        <button type="submit" class="btn btn-primary">Aceptar</button>
                                     </div>
-                                </fieldset>
-                                <fieldset class="col-xl-6" id="campos">
-                                    <legend>Tipo de campos</legend>
-
-                                    <input type="hidden" name="id" value="5">
-
-                                    <input class="form-control" type="text" placeholder="Texto" value="Hola">
-                                    <textarea class="form-control" maxlength="200" rows="5" cols="40"></textarea>
-                                    <input class="form-control" type="tel" placeholder="Teléfono">
-                                    <input class="form-control" type="url" placeholder="Web">
-                                    <input class="form-control" type="number" min="0" max="100" step="0.01" placeholder="Número">
-                                    <input class="form-control" type="date">
-                                    <input class="form-control" type="time">
-                                    <input class="form-control" type="datetime-local">
-                                    <input class="btn btn-primary" type="button" value="Botón" id="boton">
-                                    <input class="form-control" type="checkbox">
-                                    <input class="form-control" type="checkbox">
-                                    <label for="carne">Carne</label>
-                                    <input class="form-control" type="radio" id="carne" name="alimento" value="carne">
-                                    <label for="pescado">Pescado</label>
-                                    <input class="form-control" type="radio" id="pescado" name="alimento" value="pescado">
-
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                                        <label class="form-check-label" for="gridRadios1">
-                                            First radio
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                                        <label class="form-check-label" for="gridRadios2">
-                                            Second radio
-                                        </label>
-                                    </div>
-                                    <div class="form-check disabled">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
-                                        <label class="form-check-label" for="gridRadios3">
-                                            Third disabled radio
-                                        </label>
-                                    </div>
-
-                                    <select class="form-control">
-                                        <optgroup label="Primeras">
-                                            <option>Uno</option>
-                                            <option>Dos</option>
-                                        </optgroup>
-                                        <optgroup label="Segundas">
-                                            <option>Tres</option>
-                                            <option>Cuatro</option>
-                                        </optgroup>
-                                    </select>
-                                    <select class="form-control" multiple>
-                                        <optgroup label="Primeras">
-                                            <option>Uno</option>
-                                            <option>Dos</option>
-                                        </optgroup>
-                                        <optgroup label="Segundas">
-                                            <option>Tres</option>
-                                            <option>Cuatro</option>
-                                        </optgroup>
-                                    </select>
-
-                                    <input class="form-control" type="range" min="0" max="100" step="25">
-                                    <input class="form-control" type="color">
-
-                                </fieldset>
-                            </div>
+                                </div>
+                            </fieldset>
                         </form>
+                        <form class="col-xl-4">
+                            <fieldset id="campos">
+                                <legend>Tipo de campos</legend>
+
+                                <input type="hidden" name="id" value="5">
+
+                                <input class="form-control" type="text" placeholder="Texto" value="Hola">
+                                <textarea class="form-control" maxlength="200" rows="5" cols="40"></textarea>
+                                <input class="form-control" type="tel" placeholder="Teléfono">
+                                <input class="form-control" type="url" placeholder="Web">
+                                <input class="form-control" type="number" min="0" max="100" step="0.01" placeholder="Número">
+                                <input class="form-control" type="date">
+                                <input class="form-control" type="time">
+                                <input class="form-control" type="datetime-local">
+                                <input class="btn btn-primary" type="button" value="Botón" id="boton">
+                                <input class="form-control" type="checkbox">
+                                <input class="form-control" type="checkbox">
+                                <label for="carne">Carne</label>
+                                <input class="form-control" type="radio" id="carne" name="alimento" value="carne">
+                                <label for="pescado">Pescado</label>
+                                <input class="form-control" type="radio" id="pescado" name="alimento" value="pescado">
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                                    <label class="form-check-label" for="gridRadios1">
+                                        First radio
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                                    <label class="form-check-label" for="gridRadios2">
+                                        Second radio
+                                    </label>
+                                </div>
+                                <div class="form-check disabled">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+                                    <label class="form-check-label" for="gridRadios3">
+                                        Third disabled radio
+                                    </label>
+                                </div>
+
+                                <select class="form-control">
+                                    <optgroup label="Primeras">
+                                        <option>Uno</option>
+                                        <option>Dos</option>
+                                    </optgroup>
+                                    <optgroup label="Segundas">
+                                        <option>Tres</option>
+                                        <option>Cuatro</option>
+                                    </optgroup>
+                                </select>
+                                <select class="form-control" multiple>
+                                    <optgroup label="Primeras">
+                                        <option>Uno</option>
+                                        <option>Dos</option>
+                                    </optgroup>
+                                    <optgroup label="Segundas">
+                                        <option>Tres</option>
+                                        <option>Cuatro</option>
+                                    </optgroup>
+                                </select>
+
+                                <input class="form-control" type="range" min="0" max="100" step="25">
+                                <input class="form-control" type="color">
+
+                            </fieldset>
+
+                        </form>
+
+                        <script>
+                            // Example starter JavaScript for disabling form submissions if there are invalid fields
+                            (function() {
+                                'use strict';
+                                window.addEventListener('load', function() {
+                                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                    var forms = document.getElementsByClassName('needs-validation');
+                                    // Loop over them and prevent submission
+                                    var validation = Array.prototype.filter.call(forms, function(form) {
+                                        form.addEventListener('submit', function(event) {
+                                            if (form.checkValidity() === false) {
+                                                event.preventDefault();
+                                                event.stopPropagation();
+                                            }
+                                            form.classList.add('was-validated');
+                                        }, false);
+                                    });
+                                }, false);
+                            })();
+                        </script>
                     </div>
                 </section>
             </div>
