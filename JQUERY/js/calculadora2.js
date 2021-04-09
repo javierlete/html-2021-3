@@ -2,31 +2,15 @@
 
 var x, op, y;
 
-window.onload = function() {
-    var botonera = document.getElementById('botonera');
-    var operaciones = document.getElementById('operaciones');
-    var pantalla = document.getElementById('pantalla');
-
-    var boton;
-
+$(function() {
     for (var numero = 9; numero >= 0; numero--) {
-        boton = document.createElement('button');
-
-        boton.innerText = numero;
-
-        boton.onclick = function() {
-            pantalla.value = pantalla.value + this.innerText;
-        }
-
-        botonera.appendChild(boton);
+        $('<button>').text(numero).on('click', function() {
+            $('#pantalla').val($('#pantalla').val() + $(this).text());
+        }).appendTo($('#botonera'));
     }
 
-    var igual = document.createElement('button');
-
-    igual.innerText = '=';
-
-    igual.onclick = function() {
-        y = +pantalla.value;
+    $('<button>=</button>').on('click', function() {
+        y = +$('#pantalla').val();
 
         var r;
 
@@ -45,35 +29,23 @@ window.onload = function() {
                 break;
         }
 
-        pantalla.value = r;
-    }
+        $('#pantalla').val(r);
+    }).appendTo($('#botonera'));
 
-    botonera.appendChild(igual);
-
-    var borrar = document.createElement('button');
-
-    borrar.innerText = 'C';
-
-    borrar.onclick = function() {
-        pantalla.value = '';
-    }
-
-    botonera.appendChild(borrar);
+    $('#botonera').append($('<button>C</button>').on('click', function() {
+        $('#pantalla').val('');
+    }));
 
     var simbolos = ['+', '-', '*', '/'];
 
-    for (var operacion of simbolos) {
-        boton = document.createElement('button');
+    $(simbolos).each(function() {
+        $('<button>').text(this).appendTo($('#operaciones'));
+    });
 
-        boton.innerText = operacion;
+    $('#operaciones button').on('click', function() {
+        x = +$('#pantalla').val();
+        op = $(this).text();
 
-        boton.onclick = function() {
-            x = +pantalla.value;
-            op = this.innerText;
-
-            pantalla.value = '';
-        }
-
-        operaciones.appendChild(boton);
-    }
-};
+        $('#pantalla').val('');
+    });
+});
